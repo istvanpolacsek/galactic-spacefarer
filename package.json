@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@cap-js/sqlite": "^3.1.1",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
     "@sap/eslint-plugin-cds": "^4",
@@ -10,10 +11,50 @@
   },
   "scripts": {
     "prepare": "husky",
-    "dev": "cds watch"
+    "dev": "cds watch",
+    "deploy": "cds deploy"
   },
   "lint-staged": {
     "*.{js,ts,json,md}": "prettier --write",
     "*.{js,ts}": "eslint --fix"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "admin": {
+            "password": "admin",
+            "roles": [
+              "SpacefarerAdmin"
+            ]
+          },
+          "kepler": {
+            "password": "kepler",
+            "roles": [
+              "authenticated-user"
+            ],
+            "attr": {
+              "planet": "Kepler-22b"
+            }
+          },
+          "martian": {
+            "password": "martian",
+            "roles": [
+              "authenticated-user"
+            ],
+            "attr": {
+              "planet": "Mars"
+            }
+          }
+        }
+      }
+    }
   }
 }
