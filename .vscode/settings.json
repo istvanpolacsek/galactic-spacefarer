@@ -14,7 +14,7 @@
   "editor.formatOnSave": true,
   "prettier.requireConfig": true,
   "[cds]": {
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "SAPSE.vscode-cds"
   },
   "github.copilot.chat.commitMessageGeneration.instructions": [
     { "file": ".github/copilot-commit-message-instructions.md" }

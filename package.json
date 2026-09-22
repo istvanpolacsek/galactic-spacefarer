@@ -9,10 +9,11 @@
     "prettier": "^3.9.8"
   },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "dev": "cds watch"
   },
   "lint-staged": {
-    "*.{js,ts,json,md,cds}": "prettier --write",
+    "*.{js,ts,json,md}": "prettier --write",
     "*.{js,ts}": "eslint --fix"
   }
 }
