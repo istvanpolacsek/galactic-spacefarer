@@ -1,18 +1,28 @@
 {
   "devDependencies": {
+    "@cap-js/cds-typer": "^0.41.1",
     "@cap-js/sqlite": "^3.1.1",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
+    "@sap/cds": "^10.1.1",
     "@sap/eslint-plugin-cds": "^4",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.2",
     "eslint": "^10",
     "husky": "^9.1.7",
+    "jest": "^30.5.2",
     "lint-staged": "^17.5.1",
-    "prettier": "^3.9.8"
+    "prettier": "^3.9.8",
+    "ts-jest": "^29.4.12",
+    "ts-node": "^10.9.2",
+    "typescript": "5.9.3"
   },
   "scripts": {
     "prepare": "husky",
-    "dev": "cds watch",
-    "deploy": "cds deploy"
+    "typegen": "cds-typer '*' --outputDirectory srv/@cds-models",
+    "dev": "cds watch --profile development",
+    "deploy": "cds deploy",
+    "test": "jest"
   },
   "lint-staged": {
     "*.{js,ts,json,md}": "prettier --write",
@@ -20,37 +30,39 @@
   },
   "cds": {
     "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "url": "db.sqlite"
-        }
-      },
-      "auth": {
-        "kind": "mocked",
-        "users": {
-          "admin": {
-            "password": "admin",
-            "roles": [
-              "SpacefarerAdmin"
-            ]
-          },
-          "kepler": {
-            "password": "kepler",
-            "roles": [
-              "authenticated-user"
-            ],
-            "attr": {
-              "planet": "Kepler-22b"
-            }
-          },
-          "martian": {
-            "password": "martian",
-            "roles": [
-              "authenticated-user"
-            ],
-            "attr": {
-              "planet": "Mars"
+      "[development]": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "db.sqlite"
+          }
+        },
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "admin": {
+              "password": "admin",
+              "roles": [
+                "SpacefarerAdmin"
+              ]
+            },
+            "kepler": {
+              "password": "kepler",
+              "roles": [
+                "authenticated-user"
+              ],
+              "attr": {
+                "planet": "Kepler-22b"
+              }
+            },
+            "martian": {
+              "password": "martian",
+              "roles": [
+                "authenticated-user"
+              ],
+              "attr": {
+                "planet": "Mars"
+              }
             }
           }
         }

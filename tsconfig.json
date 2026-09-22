@@ -1,0 +1,16 @@
+{
+  "include": ["srv/**/*.ts", "db/**/*.ts"],
+  "exclude": ["node_modules", "gen"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "gen",
+    "rootDir": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "ignoreDeprecations": "6.0"
+  }
+}
