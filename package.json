@@ -13,6 +13,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.2",
     "@types/nodemailer": "^8.0.2",
+    "cds-plugin-ui5": "^0.17.0",
     "eslint": "^10",
     "husky": "^9.1.7",
     "jest": "^30.5.2",
@@ -32,7 +33,8 @@
     "dev": "cds watch --profile development",
     "deploy": "cds deploy",
     "pretest": "npm run typegen",
-    "test": "jest"
+    "test": "jest",
+    "watch-spacefarers": "cds watch --open sap.galactic.spacefarers.spacefarers/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "lint-staged": {
     "*.{js,ts,json,md}": "prettier --write",
@@ -91,6 +93,13 @@
     "#cds-models/*": "./@cds-models/*/index.js"
   },
   "dependencies": {
+    "@sap/cds": "^10.1.1",
     "nodemailer": "^10.0.10"
-  }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/spacefarers"
+  ]
 }
