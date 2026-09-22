@@ -4,6 +4,7 @@
     "@cap-js/sqlite": "^3.1.1",
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
+    "@faker-js/faker": "^10.6.0",
     "@sap/cds": "^10.1.1",
     "@sap/eslint-plugin-cds": "^4",
     "@types/jest": "^30.0.0",
@@ -15,11 +16,13 @@
     "prettier": "^3.9.8",
     "ts-jest": "^29.4.12",
     "ts-node": "^10.9.2",
+    "tsx": "^4.23.15",
     "typescript": "5.9.3"
   },
   "scripts": {
     "prepare": "husky",
-    "typegen": "cds-typer '*' --outputDirectory srv/@cds-models",
+    "typegen": "cds-typer '*'",
+    "datagen": "tsx scripts/generate-demo-data.ts",
     "dev": "cds watch --profile development",
     "deploy": "cds deploy",
     "test": "jest"

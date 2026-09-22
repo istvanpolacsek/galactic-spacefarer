@@ -5,4 +5,4 @@ gen
 *.db
 *.sqlite
 *.sqlite-*
-srv/@cds-models
+@cds-models
