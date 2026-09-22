@@ -10,6 +10,7 @@
     "rootDir": "./webapp",
     "outDir": "./dist",
     "baseUrl": "./",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "sap/galactic/spacefarers/spacefarers/*": ["./webapp/*"]
     },
