@@ -18,6 +18,7 @@ service SpacefarerService {
             where: 'originPlanet = $user.planet'
         }
     ]
+    @odata.draft.enabled
     entity Spacefarers as projection on entities.Spacefarers;
 
     @readonly
