@@ -1,5 +1,5 @@
 {
-  "include": ["srv/**/*.ts", "db/**/*.ts"],
+  "include": ["srv/**/*.ts", "db/**/*.ts", "scripts/**/*.ts", "test/**/*.ts"],
   "exclude": ["node_modules", "gen"],
   "compilerOptions": {
     "target": "ES2022",
@@ -11,6 +11,14 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "ignoreDeprecations": "6.0"
+    "ignoreDeprecations": "6.0",
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "paths": {
+      "@sap/cds": ["./node_modules/@cap-js/cds-types"],
+      "#cds-models/*": ["./@cds-models/*"]
+    },
+    "types": ["jest"]
   }
 }

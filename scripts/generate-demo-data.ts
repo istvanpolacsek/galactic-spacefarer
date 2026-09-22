@@ -8,7 +8,7 @@ import {
   Departments,
   Positions,
   Spacefarers,
-} from "../@cds-models/SpacefarerService";
+} from "#cds-models/SpacefarerService";
 
 interface ManagedDepartment extends Department {
   planet: string;
