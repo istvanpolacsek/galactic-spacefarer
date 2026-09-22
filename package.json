@@ -1,4 +1,6 @@
 {
+  "name": "galactic-spacefarer",
+  "description": "Galactic Spacefarer Adventure",
   "devDependencies": {
     "@cap-js/cds-test": "^1.0.2",
     "@cap-js/cds-typer": "^0.41.1",
