@@ -1,7 +1,7 @@
 import cds from "@sap/cds";
 
 describe("Spacefarer Service", () => {
-  const { GET, POST, expect, defaults } = cds.test(__dirname + "/..");
+  const { POST, expect, defaults } = cds.test(__dirname + "/..");
   const SPACEFARERS_PATH = "/odata/v4/spacefarer/Spacefarers";
   defaults.auth = { username: "admin", password: "admin" };
 
