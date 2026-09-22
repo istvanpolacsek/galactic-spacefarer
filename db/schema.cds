@@ -5,24 +5,24 @@ using {
     managed
 } from '@sap/cds/common';
 
-entity Spacefarer : cuid, managed {
+entity Spacefarers : cuid, managed {
     name               : String(111);
     originPlanet       : String(50);
     stardustCollection : Integer;
     wormholeNavSkill   : Integer;
     spacesuitColor     : String(30);
-    department         : Association to Department;
-    position           : Association to Position;
+    department         : Association to Departments;
+    position           : Association to Positions;
 }
 
-entity Department : cuid {
+entity Departments : cuid {
     name        : String(111);
-    spacefarers : Association to many Spacefarer
+    spacefarers : Association to many Spacefarers
                       on spacefarers.department = $self;
 }
 
-entity Position : cuid {
+entity Positions : cuid {
     name        : String(111);
-    spacefarers : Association to many Spacefarer
+    spacefarers : Association to many Spacefarers
                       on spacefarers.position = $self;
 }
