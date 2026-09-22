@@ -1,0 +1,22 @@
+{
+  "eslint.validate": [
+    "cds",
+    "csn",
+    "csv",
+    "csv (semicolon)",
+    "tsv",
+    "tab",
+    "javascript",
+    "typescript",
+    "java"
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true,
+  "[cds]": {
+    "editor.formatOnSave": false
+  },
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    { "file": ".github/copilot-commit-message-instructions.md" }
+  ]
+}
