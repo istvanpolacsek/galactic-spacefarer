@@ -9,7 +9,12 @@ jest.mock("../srv/lib/mailer", () => ({
 }));
 
 describe("Spacefarer Service Authentication", () => {
-  const { GET, POST, expect, defaults } = cds.test(__dirname + "/..");
+  const { GET, POST, expect, defaults } = cds.test(
+    __dirname + "/..",
+    "--profile",
+    "test",
+  );
+
   const SPACEFARERS_PATH = "/odata/v4/spacefarer/Spacefarers";
   defaults.auth = ADMIN_AUTH;
 

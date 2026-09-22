@@ -74,6 +74,14 @@
             }
           }
         }
+      },
+      "[test]": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        }
       }
     }
   },
