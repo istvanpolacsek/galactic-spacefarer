@@ -4,6 +4,10 @@ const ADMIN_AUTH = { username: "admin", password: "admin" };
 const KEPLER_AUTH = { username: "kepler", password: "kepler" };
 const MARTIAN_AUTH = { username: "martian", password: "martian" };
 
+jest.mock("../srv/lib/mailer", () => ({
+  sendWelcomeEmail: jest.fn().mockResolvedValue("mocked-preview-url"),
+}));
+
 describe("Spacefarer Service Authentication", () => {
   const { GET, POST, expect, defaults } = cds.test(__dirname + "/..");
   const SPACEFARERS_PATH = "/odata/v4/spacefarer/Spacefarers";

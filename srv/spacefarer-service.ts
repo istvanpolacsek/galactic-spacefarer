@@ -1,5 +1,6 @@
 import cds, { Request } from "@sap/cds";
 import { Spacefarer, Spacefarers } from "#cds-models/SpacefarerService";
+import { sendWelcomeEmail } from "./lib/mailer";
 
 export class SpacefarerService extends cds.ApplicationService {
   async init() {
@@ -31,13 +32,15 @@ export class SpacefarerService extends cds.ApplicationService {
     });
   }
 
-  private onAfterCreateSpacefarer(data: Spacefarers, req: Request) {
+  private async onAfterCreateSpacefarer(data: Spacefarers, req: Request) {
     if (data.length === 1) {
-      const [{ ID }] = data;
+      const [{ ID, name, originPlanet }] = data;
 
       try {
+        const previewUrl = await sendWelcomeEmail({ name, originPlanet });
+
         console.log(
-          `[SpacefarerService] Sending welcome mail to spacefarer with ID: ${ID}`,
+          `[SpacefarerService] Welcome email sent for spacefarer ${ID}: ${previewUrl}`,
         );
       } catch (error) {
         console.error(

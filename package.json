@@ -10,6 +10,7 @@
     "@sap/eslint-plugin-cds": "^4",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.2",
+    "@types/nodemailer": "^8.0.2",
     "eslint": "^10",
     "husky": "^9.1.7",
     "jest": "^30.5.2",
@@ -78,5 +79,8 @@
   },
   "imports": {
     "#cds-models/*": "./@cds-models/*/index.js"
+  },
+  "dependencies": {
+    "nodemailer": "^10.0.10"
   }
 }

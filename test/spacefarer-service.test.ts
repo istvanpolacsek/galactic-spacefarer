@@ -1,5 +1,9 @@
 import cds from "@sap/cds";
 
+jest.mock("../srv/lib/mailer", () => ({
+  sendWelcomeEmail: jest.fn().mockResolvedValue("mocked-preview-url"),
+}));
+
 describe("Spacefarer Service", () => {
   const { POST, expect, defaults } = cds.test(__dirname + "/..");
   const SPACEFARERS_PATH = "/odata/v4/spacefarer/Spacefarers";
