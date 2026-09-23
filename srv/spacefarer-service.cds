@@ -13,13 +13,20 @@ service SpacefarerService {
             to   : 'SpacefarerAdmin'
         },
         {
-            grant: ['READ'],
+            grant: [
+                'READ',
+                'UPDATE'
+            ],
             to   : 'authenticated-user',
             where: 'originPlanet = $user.planet'
         }
     ]
     @odata.draft.enabled
-    entity Spacefarers as projection on entities.Spacefarers;
+    entity Spacefarers as
+        projection on entities.Spacefarers {
+            *,
+            virtual null as lockedFieldControl : UInt8
+        };
 
     @readonly
     entity Departments as projection on entities.Departments;
