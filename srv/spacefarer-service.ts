@@ -37,19 +37,20 @@ export class SpacefarerService extends cds.ApplicationService {
     });
   }
 
-  private async onAfterCreateSpacefarer(data: Spacefarers, req: Request) {
-    if (data.length === 1) {
-      const [{ ID, name, originPlanet }] = data;
+  private async onAfterCreateSpacefarer(_results: unknown, req: Request) {
+    const entries: Spacefarer[] = Array.isArray(req.data)
+      ? req.data
+      : [req.data];
 
+    for (const { ID, name, originPlanet } of entries) {
       try {
         const previewUrl = await sendWelcomeEmail({ name, originPlanet });
-
         console.log(
           `[SpacefarerService] Welcome email sent for spacefarer ${ID}: ${previewUrl}`,
         );
       } catch (error) {
         console.error(
-          "[SpacefarerService] Failed to send welcome email",
+          `[SpacefarerService] Failed to send welcome email for ${ID}`,
           error,
         );
       }
